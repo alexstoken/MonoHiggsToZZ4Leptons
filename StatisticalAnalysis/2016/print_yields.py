@@ -16,9 +16,9 @@ def get_data(t):
   weight = []
   pfmet  = []
   mass4l = []
-  mT   = []
+  mT     = []
   dphi   = []
-  Dkin = []
+  Dkin   = []
   for evt in t:
     weight.append(evt.f_weight)
     pfmet .append(evt.f_pfmet)
@@ -35,8 +35,8 @@ if __name__ == "__main__":
   parser.add_argument('--channel', required=True, help='Decay channel: 4mu, 4e, or 2e2mu')
   args = parser.parse_args()
 
-  flist = map(lambda x: x.split()[-1], open('filelist_' + args.channel + '_2015_Fall15_AN_Bari.txt').readlines()) 
- 
+  flist = map(lambda x: x.split()[-1], open('filelist_' + args.channel + '_2016_Fall15_AN_Bari.txt').readlines()) 
+  
   w = 0
   w2 = 0
   N = 0
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     weight, pfmet, mass4l, mT, dphi, Dkin = get_data(t)
     ft.Close()
     
-    if 'MZP' not in f and 'Run2015' not in f: 
+    if 'MZp' not in f and 'Run2016' not in f: 
       N += len(weight)
       w += sum(weight)
       w2 += sum(x**2 for x in weight) 
@@ -80,11 +80,7 @@ if __name__ == "__main__":
     h1pfmet = TH1F("h1pfmet", "", 1000, 0, 1600)
     h0pfmet.Sumw2()
     h1pfmet.Sumw2()
-    h0M4l = TH1F("h0M4l", "", 1000, 0, 1000)
-    h1M4l = TH1F("h0M4l", "", 1000, 0, 1000)
-    h0M4l.Sumw2()
-    h1M4l.Sumw2()
-
+    
     # Fill hists
     #for i in range(len(weight)/2, len(weight)):
     for i in range(0, len(weight)):
@@ -94,18 +90,15 @@ if __name__ == "__main__":
    
       # Step 0: SM selection
       h0pfmet.Fill(pfmet[i], weight[i])
-      h0M4l.Fill(mass4l[i], weight[i])
-      if 'Run2015' in f: h0pfmet_D.Fill(pfmet[i], weight[i])
-      
+      if 'Run2016' in f: h0pfmet_D.Fill(pfmet[i], weight[i])
       # Step 1: MonoH selection
-      #if pfmet[i] < 80: continue
-      #if np.abs(mass4l[i] - 125) < 10: continue
+      #if pfmet[i] < 100: continue
+      #if np.abs(mass4l[i] - 125) > 25: continue
       #if m4lt[i] < 280: continue
       #if dphi[i] < 2.8: continue
-      #if Dmass4l(mass4l[i], Dkin[i], 0, 199) < 0.2: continue 
+      #if Dmass4l(mass4l[i], Dkin[i], 0, 199) < 0.2: continue
       h1pfmet.Fill(pfmet[i], weight[i])
-      h1M4l.Fill(mass4l[i], weight[i])
-      if 'Run2015' in f: h1pfmet_D.Fill(pfmet[i], weight[i])
+      if 'Run2016' in f: h1pfmet_D.Fill(pfmet[i], weight[i])
 
     # Print yields  
     err2 = 0;
@@ -127,10 +120,9 @@ if __name__ == "__main__":
     if (not fs.FindKey('bin' + args.channel)):  d = fs.mkdir('bin' + args.channel)
     hs = h1pfmet
     #name = f.split('test/')[1].split('.root')[0]
-    name = f.split('_25ns/')[1].split('.root')[0]
-    #if 'MZP' not in f: name = f.split('_25ns/')[1].split('.root')[0]
-    #if 'MZP' in f: name = f.split(args.channel+'/')[1].split('.root')[0]
-    print name
+    #name = f.split('_25ns/')[1].split('.root')[0]
+    if 'MZp' not in f: name = f.split('_25ns/')[1].split('.root')[0]
+    if 'MZp' in f: name = f.split('_25ns_BR/')[1].split('.root')[0]
     hs.SetName(name)
     hs_rebin = hs.Rebin(nRebin, name)
     #for k in range(0, hs_rebin.GetNbinsX()):
@@ -138,14 +130,8 @@ if __name__ == "__main__":
     fs.cd('bin' + args.channel)
     hs_rebin.Write(name)
     fs.Close()
-    
-    # Write out "rereduced" ntuples for CR study
-    fred = TFile('rereduced/' + args.channel + '_25ns/' + f.split('25ns/')[1], 'RECREATE')
-    h1pfmet.Write('hPFMET_R')
-    h1M4l.Write('hM4l_R')
-    fred.Close()
 
-  # Write data shape hist to file
+# Write data shape hist to file
   fs = TFile('datacards_' + args.channel + '/f' + args.channel + '.root', 'UPDATE')
   hs = h1pfmet_D
   hs.SetName('data_obs')
