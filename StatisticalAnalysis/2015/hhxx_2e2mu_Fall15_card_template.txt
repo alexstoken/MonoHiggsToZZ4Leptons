@@ -2,7 +2,7 @@ imax          1     number of channels
 jmax          NBKG  number of backgrounds
 kmax          *     number of nuisance parameters (sources of systematical uncertainties)
 ------------
-shapes * * f4mu.root $CHANNEL/$PROCESS
+shapes * * datacards_2e2mu/f2e2mu.root $CHANNEL/$PROCESS
 ------------
 bin BIN
 observation   OBS
@@ -14,9 +14,10 @@ rate          YIELDS
 ------------
 CMS_Sig              lnN  1.10
 bkg_unc              lnN  UNC
-lumi_13TeV           lnN  1.023
+lumi_13TeV           lnN  1.023 
 CMS_trig             lnN  1.02
-CMS_eff_m            lnN  1.04
+CMS_eff_m            lnN  1.02
+CMS_eff_e            lnN  1.059
 JES                  lnN  0.998
 BRhiggs_hzz4l        lnN  1.02
 QCDscale_qqH         lnN  0.997/1.004

@@ -38,14 +38,18 @@ BKG_UNC2 = 0
 NBKG = 0
 for l in yields:
   if 'Yield' in l and channel in l:
-    Name  = l.split('25ns_current/')[1].split('.root')[0]
+    #Name  = l.split('test/')[1].split('.root')[0]
+    Name  = l.split('25ns/')[1].split('.root')[0]
+    #if 'MZP' not in l: Name  = l.split('25ns/')[1].split('.root')[0]
+    #if 'MZP' in l:     Name  = l.split(channel.split('channel')[0]+'/')[1].split('.root')[0]
     N     = l.split('Entries: ')[1].split(' Yield:')[0]
     Yield = l.split('Yield: ')[1].split(' Error:')[0]
     Err   = float(l.split('Error: ')[1])
     if model in l:
       sig_labels.append(Name)
       sig_yields.append(Yield)
-      sig_unc.append(1+Err/float(Yield))
+      if float(Yield) > 0: sig_unc.append(1+Err/float(Yield))
+      else: sig_unc.append(0)
     elif datarun in l:
       dat_labels.append(Name)
       dat_yields += float(Yield)
@@ -58,13 +62,19 @@ for l in yields:
       if float(Yield) > 0: bkg_unc += str(1+Err/float(Yield)) + ' '
       else: bkg_unc += str(0) + ' '
       BKG_UNC2 += Err*Err
-
-
+print sig_labels
 # Print total signal and background yields and uncertainties
 print 'Channel ' + channel.split('channel')[0]
 print 'SIG 600: ' + str(sig_yields[6]) + ' +/- ' + str((float(sig_unc[6])-1)*float(sig_yields[6]))
+print 'SIG 800: ' + str(sig_yields[7]) + ' +/- ' + str((float(sig_unc[7])-1)*float(sig_yields[7]))
+print 'SIG 1000: ' + str(sig_yields[0]) + ' +/- ' + str((float(sig_unc[0])-1)*float(sig_yields[0]))
+print 'SIG 1200: ' + str(sig_yields[1]) + ' +/- ' + str((float(sig_unc[1])-1)*float(sig_yields[1]))
+print 'SIG 1400: ' + str(sig_yields[2]) + ' +/- ' + str((float(sig_unc[2])-1)*float(sig_yields[2]))
+print 'SIG 1700: ' + str(sig_yields[3]) + ' +/- ' + str((float(sig_unc[3])-1)*float(sig_yields[3]))
+print 'SIG 2000: ' + str(sig_yields[4]) + ' +/- ' + str((float(sig_unc[4])-1)*float(sig_yields[4]))
+print 'SIG 2500: ' + str(sig_yields[5]) + ' +/- ' + str((float(sig_unc[5])-1)*float(sig_yields[5]))
 print 'BKG: ' + str(BKG) + '+/-' + str(math.sqrt(BKG_UNC2))
-
+print 'Data: ' + str(dat_yields)
 
 # Generate cards for different signals, adding systematics to relevant samples
 for i in range(0, len(sig_labels)):
@@ -89,9 +99,9 @@ for i in range(0, len(sig_labels)):
       for j in range(0, NBKG+1): line += str(j) + ' '
       line += '\n'
     if 'YIELDS' in line:
-      if '2500' in sig_labels[i] or '2000' in sig_labels[i]:
-        line = 'rate ' + str(10*float(sig_yields[i])) + ' ' + bkg_yields + '\n'
-      else:
+      #if '2500' in sig_labels[i] or '2000' in sig_labels[i]:
+      #  line = 'rate ' + str(10*float(sig_yields[i])) + ' ' + bkg_yields + '\n'
+      #else:
         line = 'rate ' + sig_yields[i] + ' ' + bkg_yields + '\n'
     if 'lumi_13TeV' in line:
       sys = line.split()[-1]

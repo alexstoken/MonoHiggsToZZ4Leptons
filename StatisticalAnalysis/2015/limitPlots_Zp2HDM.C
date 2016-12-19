@@ -57,19 +57,21 @@ while (std::getline(file, str)){
 // Scale signal strength limits by signal production cross sections
 //Double_t _xsec[n] = {0.000124120665, 0.000076214925, 0.000039481335, 0.0000207112995, 0.000011311596};
 //Double_t _xsec[n] = {0.000124120665, 0.000076214925, 0.000039481335, 0.0000207112995, 0.000011311596, 0.000004882257};
-Double_t _xsec[n] = {0.000124120665*1E3, 0.000076214925*1E3, 0.000039481335*1E3, 0.0000207112995*1E3, 0.000011311596*1E3, 0.000004882257*1E3, 0.00000225960165*1E3, 0.0000006988221*1E3};
-Double_t _scale[n] = {1, 1, 1, 1, 1, 1, 1E1, 1E1}; 
-BR = 1.25E-04;
-FB_TO_PB = 1E3;
+//Double_t _xsec[n] = {0.000124120665*1E3, 0.000076214925*1E3, 0.000039481335*1E3, 0.0000207112995*1E3, 0.000011311596*1E3, 0.000004882257*1E3, 0.00000225960165*1E3, 0.0000006988221*1E3};
+BR = 2.745E-04;
+PBtoFB = 1E3;
+//Double_t _xsec[n] = {BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB};
+Double_t _xsec[n] = {0.45217*BR*PBtoFB, 0.27765*BR*PBtoFB, 0.14383*BR*PBtoFB, 0.075451*BR*PBtoFB, 0.041208*BR*PBtoFB, 0.017786*BR*PBtoFB, 0.0082317*BR*PBtoFB, 0.0025458*BR*PBtoFB};
+//Double_t _xsec[n] = {1, 1, 1, 1, 1, 1, 1, 1};
 for(int i=0;i<n;i++){
-  _2siglow[i]  *= _xsec[i] * _scale[i];
-  _1siglow[i]  *= _xsec[i] * _scale[i];
-  _middle[i]   *= _xsec[i] * _scale[i];
-  _1sighigh[i] *= _xsec[i] * _scale[i];
-  _2sighigh[i] *= _xsec[i] * _scale[i];
-  _observed[i] *= _xsec[i] * _scale[i];
+  _2siglow[i]  *= _xsec[i];
+  _1siglow[i]  *= _xsec[i];
+  _middle[i]   *= _xsec[i];
+  _1sighigh[i] *= _xsec[i];
+  _2sighigh[i] *= _xsec[i];
+  _observed[i] *= _xsec[i];
 }
-cout << _middle[0] << " " << _middle[7] << endl;
+cout << _middle[0] << " " << _middle[1] << " " << _middle[2] << " " << _middle[3] << " " << _middle[4] << " " << _middle[5] << " " << _middle[6] << " " << _middle[7] << endl;
 
 
 // Fill graphs
@@ -91,6 +93,14 @@ for(i=0;i<n;i++){
   grshade2->SetPoint(n+i, _mzp[n-i-1], _2siglow[n-i-1]);
 }
 
+// Write to file
+TFile * fout   = new TFile("ZZ_plots_theoryxsec.root", "recreate");
+g2siglow->Write("g2siglow");
+g1siglow->Write("g1siglow");
+gmiddle->Write("gmiddle");
+g1sighigh->Write("g1sighigh");
+g2sighigh->Write("g2sighigh");
+
 // Plot formatting
 gStyle->SetOptStat(0);
 TCanvas *c = new TCanvas("c");
@@ -99,7 +109,7 @@ c->cd();
 c->SetLogy();
 c->SetTicks(1,1);
 c->SetGrid();
-TH2F * hframe = new TH2F("hframe", "", 10, 600, 2500, 10, 5E-4, 5E4);
+TH2F * hframe = new TH2F("hframe", "", 10, 600, 2500, 10, 5E-5, 8E3);
 hframe->GetXaxis()->SetTitle("m_{Z'} [GeV]");
 hframe->GetXaxis()->SetTitleOffset(1.0);
 hframe->GetXaxis()->SetTitleSize(0.04);
@@ -118,7 +128,7 @@ gmiddle->SetLineWidth(2);
 gmiddle->SetLineStyle(2);
 gmiddle->Draw("l");
 gobserved->SetLineWidth(2);
-gobserved->Draw("l");
+//gobserved->Draw("l");
 gxsec->SetLineWidth(2);
 gxsec->SetLineColor(kBlue);
 gxsec->SetLineStyle(2);
@@ -129,11 +139,11 @@ gxsec->Draw("l");
 TLegend *leg = new TLegend(0.5,0.65,0.85,0.85);
 leg->SetFillStyle(0);
 leg->SetBorderSize(0);
-leg->AddEntry(gxsec, "Z'2HDM g_{Z}=0.8", "L");
+leg->AddEntry(gxsec, "Z'2HDM g_{Z}=0.8 x BR", "L");
 leg->AddEntry(gmiddle, "Expected limit", "L");
 leg->AddEntry(grshade1, "#pm 1 #sigma", "F");
 leg->AddEntry(grshade2, "#pm 2 #sigma", "F");
-leg->AddEntry(gobserved, "Observed limit", "L");
+//leg->AddEntry(gobserved, "Observed limit", "L");
 leg->SetTextSize(0.04);
 leg->Draw();
 
@@ -146,9 +156,11 @@ ll->SetFillColor(0);
 ll->SetBorderSize(0);
 ll->SetMargin(0.01);
 ll->SetTextAlign(12); // align left
-TString text = "#font[22]{CMS} #font[12]{Preliminary}";
+TString text = "Work in Progress";
+//TString text = "#font[22]{CMS} #font[12]{Preliminary}";
 ll->AddText(0.01,0.5,text);
 text = "#sqrt{s} = 13 TeV, L = 2.8 fb^{-1}" ;
+//text = "#sqrt{s} = 13 TeV, L = 36.5 fb^{-1}" ;
 ll->AddText(0.65, 0.6, text);
 ll->Draw();
 

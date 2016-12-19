@@ -28,12 +28,16 @@ echo '--------------------------------------------------------------------------
 echo '-----------------------------------------------------------------------------'
 echo 'Step 2: Find event yields from ntuples'
 echo '-----------------------------------------------------------------------------'
+mkdir -p datacards_4mu datacards_4e datacards_2e2mu datacards_4l
 rm yields.txt
+rm datacards_4mu/f4mu.root
+rm datacards_4e/f4e.root
+rm datacards_2e2mu/f2e2mu.root
 if [ $1 == "4l" ]; then
-  root -b -q -l "print_yields.C(\"4mu\")"   >> yields.txt
-  root -b -q -l "print_yields.C(\"4e\")"    >> yields.txt
-  root -b -q -l "print_yields.C(\"2e2mu\")" >> yields.txt
-else root -b -q -l "print_yields.C(\"$1\")" >> yields.txt
+  python print_yields.py --channel 4mu   >> yields.txt
+  python print_yields.py --channel 4e    >> yields.txt
+  python print_yields.py --channel 2e2mu >> yields.txt
+else python print_yields.py --channel $1 >> yields.txt
 fi
 
 
@@ -45,7 +49,6 @@ fi
 echo '-----------------------------------------------------------------------------'
 echo 'Step 3: Generate cards for different signals and channels'
 echo '-----------------------------------------------------------------------------'
-mkdir -p datacards_4mu datacards_4e datacards_2e2mu datacards_4l
 if [ $1 == "4mu" ];   then python gen_cards.py '4muchannel'; fi
 if [ $1 == "4e" ];    then python gen_cards.py '4echannel'; fi
 if [ $1 == "2e2mu" ]; then python gen_cards.py '2e2muchannel'; fi
@@ -61,6 +64,13 @@ if [ $1 == "4l" ]; then
   combineCards.py datacards_4mu/hhxx_Fall15_card_4mu_MZP1700_MA0300.txt datacards_4e/hhxx_Fall15_card_4e_MZP1700_MA0300.txt datacards_2e2mu/hhxx_Fall15_card_2e2mu_MZP1700_MA0300.txt > datacards_4l/hhxx_Fall15_card_4l_MZP1700_MA0300.txt
   combineCards.py datacards_4mu/hhxx_Fall15_card_4mu_MZP2000_MA0300.txt datacards_4e/hhxx_Fall15_card_4e_MZP2000_MA0300.txt datacards_2e2mu/hhxx_Fall15_card_2e2mu_MZP2000_MA0300.txt > datacards_4l/hhxx_Fall15_card_4l_MZP2000_MA0300.txt
   combineCards.py datacards_4mu/hhxx_Fall15_card_4mu_MZP2500_MA0300.txt datacards_4e/hhxx_Fall15_card_4e_MZP2500_MA0300.txt datacards_2e2mu/hhxx_Fall15_card_2e2mu_MZP2500_MA0300.txt > datacards_4l/hhxx_Fall15_card_4l_MZP2500_MA0300.txt
+
+  sed -i -e 's/datacards_4mu\/datacards_4mu\//datacards_4mu\//g' datacards_4l/hhxx_Fall15_card_4l_MZP*_MA0300.txt
+  sed -i -e 's/datacards_4e\/datacards_4e\//datacards_4e\//g' datacards_4l/hhxx_Fall15_card_4l_MZP*_MA0300.txt
+  sed -i -e 's/datacards_2e2mu\/datacards_2e2mu\//datacards_2e2mu\//g' datacards_4l/hhxx_Fall15_card_4l_MZP*_MA0300.txt
+
+  #sed -i -e 's/datacards/ZZ\/datacards/g' datacards_4l/hhxx_Fall15_card_4l_MZP*_MA0300.txt
+
 fi
 
 
@@ -71,9 +81,6 @@ fi
 echo '-----------------------------------------------------------------------------'
 echo 'Step 4: Calculate limits for different signals'
 echo '-----------------------------------------------------------------------------'
-mv f4mu.root datacards_4mu
-mv f4e.root datacards_4e
-mv f2e2mu.root datacards_2e2mu
 combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_MZP600_MA0300.txt  > limits_$1_MZP600.txt
 combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_MZP800_MA0300.txt  > limits_$1_MZP800.txt
 combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_MZP1000_MA0300.txt > limits_$1_MZP1000.txt
