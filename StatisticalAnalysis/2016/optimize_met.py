@@ -88,7 +88,7 @@ if __name__ == "__main__":
 
   # Read in file list
   # ls data/2016/histos4mu_25ns_orig/*root > filelist_4mu_2016_Spring16_AN_Bari.txt
-  flist = map(lambda x: x.split()[-1], open('filelist_' + args.channel + '_2016_Spring16_AN_Bari.txt').readlines())
+  flist = map(lambda x: x.split()[-1], open('filelist_' + args.channel + '_2016_Spring16_AN_FNAL.txt').readlines())
 
   # Define range and step size for met cut
   cut_pfmet = np.arange(0, 500, 10)
@@ -119,11 +119,11 @@ if __name__ == "__main__":
   plt.plot(cut_pfmet, punzi2000, linewidth=2.0, label=r'$m_{Z\prime} = 2000 \rm{GeV}$')
   plt.plot(cut_pfmet, punzi2500, linewidth=2.0, label=r'$m_{Z\prime} = 2500 \rm{GeV}$')
   #plt.axis([0, 500, 0, 0.5])
-  plt.ylabel('Punzi\'s Significance (N=5)', horizontalalignment='right', y=1.0, fontsize=18)
+  plt.ylabel(args.channel + ' Punzi\'s Significance (N=5)', horizontalalignment='right', y=1.0, fontsize=18)
   plt.xlabel('MET cut [GeV]', horizontalalignment='right', x=1.0, fontsize=16)
   plt.grid(True)
   #plt.legend(loc='lower left', frameon=False, prop={'size':12})
-  plt.savefig('punzi_met.png')
+  plt.savefig(args.channel + '_punzi_met.png')
  
   plt.figure(2)
   plt.plot(cut_pfmet, eff_S600,  linewidth=2.0, label=r'$m_{Z\prime} = 600 \rm{GeV}$')
@@ -135,10 +135,10 @@ if __name__ == "__main__":
   plt.plot(cut_pfmet, eff_S2000, linewidth=2.0, label=r'$m_{Z\prime} = 2000 \rm{GeV}$')
   plt.plot(cut_pfmet, eff_S2500, linewidth=2.0, label=r'$m_{Z\prime} = 2500 \rm{GeV}$')
   #plt.axis([0, 500, 0, 1.1])
-  plt.ylabel('Signal Efficiency', horizontalalignment='right', y=1.0, fontsize=18)
+  plt.ylabel(args.channel + ' Signal Efficiency', horizontalalignment='right', y=1.0, fontsize=18)
   plt.xlabel('MET cut [GeV]', horizontalalignment='right', x=1.0, fontsize=18)
   plt.grid(True)
   plt.legend(loc='lower left', frameon=False, prop={'size':14})
-  plt.savefig('eff_met.png')
+  plt.savefig(args.channel + '_eff_met.png')
 
   plt.show()
