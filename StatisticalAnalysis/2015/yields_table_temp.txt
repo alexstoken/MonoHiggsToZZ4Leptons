@@ -1,0 +1,26 @@
+\begin{table*}[htbH]  
+\begin{center}  
+\topcaption{Event yields after SM selection, with $m_{4l}>70$ GeV.}\label{tab:yields}  
+\begin{tabular}{ l | c | c | c | c}  
+\hline  
+\hline  
+Channel & 4e & 4$\mu$ & 2e2$\mu$ & 4$l$ \\  
+\hline  
+$q\bar{q} \rightarrow ZZ$ & & & & \\ 
+$gg \rightarrow ZZ$ & & & & \\ 
+$Z+X$ & & & & \\ 
+$ZH$ & & & & \\ 
+Other Higgs & & & & \\ 
+\hline 
+Total background & & & & \\ 
+\hline 
+Signal ($m_\chi=600$ GeV) & & & & \\ 
+\hline 
+Total expected & & & & \\ 
+\hline 
+Observed & & & & \\ 
+\hline  
+\hline  
+\end{tabular}  
+\end{center}  
+\end{table*}

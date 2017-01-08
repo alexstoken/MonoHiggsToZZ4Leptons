@@ -1,0 +1,28 @@
+\begin{table*}[htbH]    
+\begin{center}    
+\topcaption{Cut flow for $4e$ channel. Example signal is Z'2HDM with $m_{Z'}=600$ GeV.}\label{tab:yields}    
+\begin{tabular}{ l | c | c | c | c | c | c | c | c }     
+\hline    
+\hline    
+Sample & $q\bar{q} \rightarrow ZZ$ & $gg \rightarrow ZZ$ & $Z+X$ & $ZH$ & Other H & Total & Signal & Observed \\ 
+\hline 
+Initial & & & & & & & & \\  
+\hline 
+HLT & & & & & & & & \\ 
+\hline 
+$Z_1$ lepton cuts & & & & & & & & \\ 
+\hline 
+$m_{Z_1}$ & & & & & & & & \\ 
+\hline 
+At least one $Z_2$ & & & & & & & & \\ 
+\hline 
+$m_{Z_2}$ & & & & & & & & \\ 
+\hline 
+$m_{ll}>4$ for OS-SF & & & & & & & & \\ 
+\hline 
+$m_{llll} > 70$ GeV & & & & & & & & \\ 
+\hline 
+\hline    
+\end{tabular}    
+\end{center}    
+\end{table*} 
