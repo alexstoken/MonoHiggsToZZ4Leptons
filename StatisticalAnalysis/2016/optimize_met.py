@@ -43,8 +43,8 @@ def get_punzi(signal, flist, cut_pfmet):
   punzi     = np.zeros((len(cut_pfmet)))
 
   # load bnn
-  record = open('Dmass4l.cpp').read()
-  gROOT.ProcessLine(record)
+  #record = open('Dmass4l.cpp').read()
+  #gROOT.ProcessLine(record)
 
   # loop through files in filelist, incrementing counters and filling arrays
   for f in flist:
