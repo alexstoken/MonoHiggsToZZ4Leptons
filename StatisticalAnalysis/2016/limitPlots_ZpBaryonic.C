@@ -70,15 +70,15 @@ PBtoFB = 1E3;
 //Double_t _xsec[n] = {0.45217*BR*PBtoFB, 0.27765*BR*PBtoFB, 0.14383*BR*PBtoFB, 0.075451*BR*PBtoFB, 0.041208*BR*PBtoFB, 0.017786*BR*PBtoFB, 0.0082317*BR*PBtoFB, 0.0025458*BR*PBtoFB};
 //Double_t _xsec[n] = {BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB};
 Double_t _xsecth[n] = {2.59475200139*BR*PBtoFB, 2.72240963862*BR*PBtoFB, 3.25607022875*BR*PBtoFB, 3.18024514561*BR*PBtoFB, 2.5517404181*BR*PBtoFB, 2.26717461494*BR*PBtoFB, 1.09367084934*BR*PBtoFB, 0.201769753605*BR*PBtoFB, 0.0139348225665*BR*PBtoFB, 1.19161364309e-08*BR*PBtoFB};
-Double_t _xsec[n] = {BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB};
+//Double_t _xsec[n] = {BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB};
 //Double_t _xsec[n] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
 for(int i=0;i<n;i++){
-  _2siglow[i]  *= _xsec[i];
-  _1siglow[i]  *= _xsec[i];
-  _middle[i]   *= _xsec[i];
-  _1sighigh[i] *= _xsec[i];
-  _2sighigh[i] *= _xsec[i];
-  _observed[i] *= _xsec[i];
+  _2siglow[i]  *= _xsecth[i];
+  _1siglow[i]  *= _xsecth[i];
+  _middle[i]   *= _xsecth[i];
+  _1sighigh[i] *= _xsecth[i];
+  _2sighigh[i] *= _xsecth[i];
+  _observed[i] *= _xsecth[i];
 }
 cout << _middle[0] << " " << _middle[1] << " " << _middle[2] << " " << _middle[3] << " " << _middle[4] << " " << _middle[5] << " " << _middle[6] << " " << _middle[7] << " " << _middle[8] << " " << _middle[9] << endl;
 

@@ -61,15 +61,15 @@ while (std::getline(file, str)){
 BR = 2.745E-04;
 PBtoFB = 1E3;
 Double_t _xsecth[n] = {0.45217*BR*PBtoFB, 0.27765*BR*PBtoFB, 0.14383*BR*PBtoFB, 0.075451*BR*PBtoFB, 0.041208*BR*PBtoFB, 0.017786*BR*PBtoFB, 0.0082317*BR*PBtoFB, 0.0025458*BR*PBtoFB};
-Double_t _xsec[n] = {BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB};
+//Double_t _xsec[n] = {BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB};
 //Double_t _xsec[n] = {1, 1, 1, 1, 1, 1, 1, 1};
 for(int i=0;i<n;i++){
-  _2siglow[i]  *= _xsec[i];
-  _1siglow[i]  *= _xsec[i];
-  _middle[i]   *= _xsec[i];
-  _1sighigh[i] *= _xsec[i];
-  _2sighigh[i] *= _xsec[i];
-  _observed[i] *= _xsec[i];
+  _2siglow[i]  *= _xsecth[i];
+  _1siglow[i]  *= _xsecth[i];
+  _middle[i]   *= _xsecth[i];
+  _1sighigh[i] *= _xsecth[i];
+  _2sighigh[i] *= _xsecth[i];
+  _observed[i] *= _xsecth[i];
 }
 cout << _middle[0] << " " << _middle[1] << " " << _middle[2] << " " << _middle[3] << " " << _middle[4] << " " << _middle[5] << " " << _middle[6] << " " << _middle[7] << endl;
 
