@@ -35,7 +35,7 @@ if __name__ == "__main__":
   parser.add_argument('--channel', required=True, help='Decay channel: 4mu, 4e, or 2e2mu')
   args = parser.parse_args()
 
-  flist = map(lambda x: x.split()[-1], open('filelist_' + args.channel + '_2015_Fall15_AN_Bari.txt').readlines()) 
+  flist = map(lambda x: x.split()[-1], open('filelist_' + args.channel + '_2015_Fall15_AN_FNAL.txt').readlines()) 
  
   w = 0
   w2 = 0
