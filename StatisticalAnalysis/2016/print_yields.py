@@ -35,7 +35,7 @@ if __name__ == "__main__":
   parser.add_argument('--channel', required=True, help='Decay channel: 4mu, 4e, or 2e2mu')
   args = parser.parse_args()
 
-  flist = map(lambda x: x.split()[-1], open('filelist_' + args.channel + '_2016_Fall15_AN_Bari.txt').readlines()) 
+  flist = map(lambda x: x.split()[-1], open('filelist_' + args.channel + '_2016_Spring16_AN_FNAL.txt').readlines()) 
   
   w = 0
   w2 = 0
@@ -92,8 +92,8 @@ if __name__ == "__main__":
       h0pfmet.Fill(pfmet[i], weight[i])
       if 'Run2016' in f: h0pfmet_D.Fill(pfmet[i], weight[i])
       # Step 1: MonoH selection
-      #if pfmet[i] < 100: continue
-      #if np.abs(mass4l[i] - 125) > 25: continue
+      if pfmet[i] < 100: continue
+      if np.abs(mass4l[i] - 125) > 10: continue
       #if m4lt[i] < 280: continue
       #if dphi[i] < 2.8: continue
       #if Dmass4l(mass4l[i], Dkin[i], 0, 199) < 0.2: continue
@@ -120,9 +120,9 @@ if __name__ == "__main__":
     if (not fs.FindKey('bin' + args.channel)):  d = fs.mkdir('bin' + args.channel)
     hs = h1pfmet
     #name = f.split('test/')[1].split('.root')[0]
-    #name = f.split('_25ns/')[1].split('.root')[0]
-    if 'MZp' not in f: name = f.split('_25ns/')[1].split('.root')[0]
-    if 'MZp' in f: name = f.split('_25ns_BR/')[1].split('.root')[0]
+    name = f.split('_2016/')[1].split('.root')[0]
+    #if 'MZp' not in f: name = f.split('_2016/')[1].split('.root')[0]
+    #if 'MZp' in f: name = f.split('_25ns_BR/')[1].split('.root')[0]
     hs.SetName(name)
     hs_rebin = hs.Rebin(nRebin, name)
     #for k in range(0, hs_rebin.GetNbinsX()):
