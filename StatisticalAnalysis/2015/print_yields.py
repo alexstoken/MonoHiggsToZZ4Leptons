@@ -140,10 +140,10 @@ if __name__ == "__main__":
     fs.Close()
     
     # Write out "rereduced" ntuples for CR study
-    fred = TFile('rereduced/' + args.channel + '_2015/' + f.split('2015/')[1], 'RECREATE')
-    h1pfmet.Write('hPFMET_R')
-    h1M4l.Write('hM4l_R')
-    fred.Close()
+    #fred = TFile('rereduced/' + args.channel + '_2015/' + f.split('2015/')[1], 'RECREATE')
+    #h1pfmet.Write('hPFMET_R')
+    #h1M4l.Write('hM4l_R')
+    #fred.Close()
 
   # Write data shape hist to file
   fs = TFile('datacards_' + args.channel + '/f' + args.channel + '.root', 'UPDATE')
