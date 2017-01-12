@@ -106,7 +106,7 @@ cat limits_$1_MZP600.txt limits_$1_MZP800.txt limits_$1_MZP1000.txt limits_$1_MZ
 echo '-----------------------------------------------------------------------------'
 echo 'Step 6: Parse merged txt file to extract limits'
 echo '-----------------------------------------------------------------------------'
-python format_limits.py $1
+#python format_limits.py $1
 
 
 # -----------------------------------------------------------------------------

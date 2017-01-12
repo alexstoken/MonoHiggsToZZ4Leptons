@@ -127,7 +127,7 @@ if __name__ == "__main__":
     if (not fs.FindKey('bin' + args.channel)):  d = fs.mkdir('bin' + args.channel)
     hs = h1pfmet
     #name = f.split('test/')[1].split('.root')[0]
-    name = f.split('_25ns/')[1].split('.root')[0]
+    name = f.split('_2015/')[1].split('.root')[0]
     #if 'MZP' not in f: name = f.split('_25ns/')[1].split('.root')[0]
     #if 'MZP' in f: name = f.split(args.channel+'/')[1].split('.root')[0]
     print name
@@ -140,7 +140,7 @@ if __name__ == "__main__":
     fs.Close()
     
     # Write out "rereduced" ntuples for CR study
-    fred = TFile('rereduced/' + args.channel + '_25ns/' + f.split('25ns/')[1], 'RECREATE')
+    fred = TFile('rereduced/' + args.channel + '_2015/' + f.split('2015/')[1], 'RECREATE')
     h1pfmet.Write('hPFMET_R')
     h1M4l.Write('hM4l_R')
     fred.Close()

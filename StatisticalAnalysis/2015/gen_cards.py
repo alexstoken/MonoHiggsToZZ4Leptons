@@ -39,7 +39,7 @@ NBKG = 0
 for l in yields:
   if 'Yield' in l and channel in l:
     #Name  = l.split('test/')[1].split('.root')[0]
-    Name  = l.split('25ns/')[1].split('.root')[0]
+    Name  = l.split('2015/')[1].split('.root')[0]
     #if 'MZP' not in l: Name  = l.split('25ns/')[1].split('.root')[0]
     #if 'MZP' in l:     Name  = l.split(channel.split('channel')[0]+'/')[1].split('.root')[0]
     N     = l.split('Entries: ')[1].split(' Yield:')[0]
