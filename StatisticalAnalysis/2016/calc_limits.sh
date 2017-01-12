@@ -291,10 +291,10 @@ cat limits_ZpBaryonic_MZP10_MChi1000.txt limits_ZpBaryonic_MZP1000_MChi1000.txt 
 echo '-----------------------------------------------------------------------------'
 echo 'Step 6: Parse merged txt file to extract limits'
 echo '-----------------------------------------------------------------------------'
-python format_limits.py $1 Zp2HDM
-python format_limits.py $1 ZpBaryonic
-python format_limits_2D.py
-python format_limits_ZpBaryonic_2D.py  
+#python format_limits.py $1 Zp2HDM
+#python format_limits.py $1 ZpBaryonic
+#python format_limits_2D.py
+#python format_limits_ZpBaryonic_2D.py  
 
 # -----------------------------------------------------------------------------
 #  Parse the output of Step 6 and create limit plots, properly scaled.
