@@ -62,21 +62,21 @@ def get_punzi(signal, flist, cut_pfmet):
       # Signal region selection
       if Ngood[n] != 4: continue
       #if pfmet[n] < 140: continue
-      if np.abs(mass4l[n] - 125) > 4: continue
+      #if np.abs(mass4l[n] - 125) > 10: continue
       #if m4lt[n] < 280: continue
       #if dphi[n] < 2.8: continue
       #if D[n] > 0.2: continue
     
       # Increment counters
       for i in range(0, len(cut_pfmet)):     
-         #if np.abs(mass4l[n] - 125) < cut_pfmet[i] and 'Run2016' not in f.GetName() and 'MZp' not in f.GetName(): 
-         #    counter_B[i] += weight[n]
-         #if np.abs(mass4l[n] - 125) < cut_pfmet[i] and signal in f.GetName():
-         #    counter_S[i] += weight[n]
-         if pfmet[n] > cut_pfmet[i] and 'Run2016' not in f.GetName() and 'MZp' not in f.GetName(): 
+         if np.abs(mass4l[n] - 125) < cut_pfmet[i] and 'Run2016' not in f.GetName() and 'MZp' not in f.GetName(): 
              counter_B[i] += weight[n]
-         if pfmet[n] > cut_pfmet[i] and signal in f.GetName():
+         if np.abs(mass4l[n] - 125) < cut_pfmet[i] and signal in f.GetName():
              counter_S[i] += weight[n]
+         #if pfmet[n] > cut_pfmet[i] and 'Run2016' not in f.GetName() and 'MZp' not in f.GetName(): 
+         #    counter_B[i] += weight[n]
+         #if pfmet[n] > cut_pfmet[i] and signal in f.GetName():
+         #    counter_S[i] += weight[n]
   print counter_B
   print counter_S  
   # Calculate efficiency and Punzi signficance from counter arrays
@@ -101,8 +101,7 @@ if __name__ == "__main__":
   flist = map(lambda x: x.split()[-1], open('filelist_' + args.channel + '_2016_Spring16_AN_lxplus.txt').readlines())
   
   # Define range and step size for met cut
-  cut_pfmet = np.arange(1, 500, 25)
-  #cut_pfmet = np.arange(1, 8, 0.25)
+  cut_pfmet = np.arange(1, 8, 0.25)
   print cut_pfmet
   # Return signal efficiency and punzi significance for different signals
   if '2015' in flist[0]:
@@ -141,12 +140,10 @@ if __name__ == "__main__":
   plt.plot(cut_pfmet, punzi2500, linewidth=2.0, label=r'$m_{Z\prime} = 2500 \rm{\ GeV}$')
   #plt.axis([0, 500, 0, 0.5])
   plt.ylabel(args.channel + ' Punzi\'s Significance (N=5)', fontsize=16)
-  plt.xlabel('PFMET cut [GeV]', horizontalalignment='right', x=1.0, fontsize=16)
-  #plt.xlabel(r'$M_{llll} \rm{\ cut\ [GeV]}$', horizontalalignment='right', x=1.0, fontsize=16)
+  plt.xlabel(r'$M_{llll} \rm{\ cut\ [GeV]}$', horizontalalignment='right', x=1.0, fontsize=16)
   plt.grid(True)
   plt.legend(loc='best', frameon=False, prop={'size':12})
-  plt.savefig(args.channel + '_punzi_met.png')
-  #plt.savefig(args.channel + '_punzi_m4l.png')
+  plt.savefig(args.channel + '_punzi_m4l.png')
  
   #plt.figure(2)
   #plt.plot(cut_pfmet, eff_S600,  linewidth=2.0, label=r'$m_{Z\prime} = 600 \rm{GeV}$')
