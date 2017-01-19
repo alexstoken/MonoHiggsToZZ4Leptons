@@ -299,6 +299,7 @@ void mkplots(const char* histlabel){
   }
   
   // Set options for plot depending on selected histogram
+  // varPlot( _datanames, _bkgnames, _sig2HDM600, _sig2HDM1200, _sig2HDM2000, _sigZpB10, histlabel, logy, xmin, xmax, ymin, ymax, nRebin, xlabel){
 
   if (strncmp(histlabel, "hPFMET_3", 10) == 0){
     varPlot(_datanames, _bkgnames, _sig2HDM600, _sig2HDM1200, _sig2HDM2000, _sigZpB10, histlabel, true, 4.5, 1000, 5E-5, 2E4, 10, "PFMET [GeV]");
