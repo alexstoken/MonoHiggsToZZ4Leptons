@@ -80,7 +80,7 @@ for(int i=0;i<n;i++){
   _2sighigh[i] *= _xsecth[i];
   _observed[i] *= _xsecth[i];
 }
-cout << _middle[0] << " " << _middle[1] << " " << _middle[2] << " " << _middle[3] << " " << _middle[4] << " " << _middle[5] << " " << _middle[6] << " " << _middle[7] << " " << _middle[8] << " " << _middle[9] << endl;
+cout << "LIMS: " << _middle[0] << " " << _middle[1] << " " << _middle[2] << " " << _middle[3] << " " << _middle[4] << " " << _middle[5] << " " << _middle[6] << " " << _middle[7] << " " << _middle[8] << " " << _middle[9] << endl;
 
 
 // Fill graphs
@@ -114,12 +114,12 @@ g2sighigh->Write("g2sighigh");
 gStyle->SetOptStat(0);
 TCanvas *c = new TCanvas("c");
 c->cd();
-//c->SetLogx();
+c->SetLogx();
 c->SetLogy();
 c->SetTicks(1,1);
 c->SetGrid();
 //TH2F * hframe = new TH2F("hframe", "", 10, 0, 2000, 10, 1E-2, 1E4);
-TH2F * hframe = new TH2F("hframe", "", 10, 0, 2000, 10, 5E-4, 2E2);
+TH2F * hframe = new TH2F("hframe", "", 10, 10, 2000, 10, 5E-4, 2E3);
 hframe->GetXaxis()->SetTitle("m_{Z'} [GeV]");
 hframe->GetXaxis()->SetTitleOffset(1.0);
 hframe->GetXaxis()->SetTitleSize(0.04);
