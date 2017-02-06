@@ -5,7 +5,7 @@ This page contains the set of kinematic plots for the mono-Higgs(ZZ) analysis, g
 
 ## Step 3: 
 [[https://github.com/dburns7/MonoHiggsToZZ4Leptons/blob/master/StatisticalAnalysis/2016/plots/hist_hPFMET_3.png|alt=test]]
-
+![alt tag](https://github.com/dburns7/MonoHiggsToZZ4Leptons/blob/master/StatisticalAnalysis/2016/plots/hist_hPFMET_3.png)
 ## Step 5:
 
 ## Step 8:
