@@ -284,7 +284,7 @@ void varPlot(std::vector<string> _datanames, std::vector<string> _bkgnames, std:
 void mkplots(const char* histlabel){
  
   // Read in and sort input files
-  std::string inputfile = "filelist_4l_2016_Spring16_AN_FNAL.txt";
+  std::string inputfile = "filelist_4l_2016_Spring16_AN_lxplus.txt";
   std::vector<string> _datanames, _bkgnames, _sig2HDM600, _sig2HDM1200, _sig2HDM2000, _sigZpB10;
   std::ifstream in;
   in.open(inputfile.c_str());
@@ -301,7 +301,7 @@ void mkplots(const char* histlabel){
   // Set options for plot depending on selected histogram
   // varPlot( _datanames, _bkgnames, _sig2HDM600, _sig2HDM1200, _sig2HDM2000, _sigZpB10, histlabel, logy, xmin, xmax, ymin, ymax, nRebin, xlabel){
 
-  if (strncmp(histlabel, "hPFMET_3", 10) == 0){
+  if (strncmp(histlabel, "hPFMET_3", 10) == 0 || strncmp(histlabel, "hPFMET_8", 10) == 0){
     varPlot(_datanames, _bkgnames, _sig2HDM600, _sig2HDM1200, _sig2HDM2000, _sigZpB10, histlabel, true, 4.5, 1000, 5E-5, 2E4, 10, "PFMET [GeV]");
   }
 
