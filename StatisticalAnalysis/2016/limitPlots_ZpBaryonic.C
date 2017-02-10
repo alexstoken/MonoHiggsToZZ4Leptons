@@ -53,7 +53,7 @@ while (std::getline(file, str)){
     }
   }
 }
-cout << _middle[8] << " " << _middle[9] << endl;
+//cout << _middle[8] << " " << _middle[9] << endl;
 
 /*Double_t _2siglow[n] = {1.0927, 1.2740, 1.1754, 1.0960, 1.2360, 1.2880, 1.8831, 6.1985, 70.9080};
 Double_t _1siglow[n] = {1.6067, 1.8781, 1.7213, 1.5977, 1.8248, 1.8968, 2.8525, 9.8906, 116.8418};
@@ -80,7 +80,8 @@ for(int i=0;i<n;i++){
   _2sighigh[i] *= _xsecth[i];
   _observed[i] *= _xsecth[i];
 }
-cout << "LIMS: " << _middle[0] << " " << _middle[1] << " " << _middle[2] << " " << _middle[3] << " " << _middle[4] << " " << _middle[5] << " " << _middle[6] << " " << _middle[7] << " " << _middle[8] << " " << _middle[9] << endl;
+cout << "Baryonic " << _middle[0] << endl;
+//cout << "LIMS: " << _middle[0] << " " << _middle[1] << " " << _middle[2] << " " << _middle[3] << " " << _middle[4] << " " << _middle[5] << " " << _middle[6] << " " << _middle[7] << " " << _middle[8] << " " << _middle[9] << endl;
 
 
 // Fill graphs

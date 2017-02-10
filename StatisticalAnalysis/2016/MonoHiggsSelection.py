@@ -1,19 +1,21 @@
 #!/usr/bin/env python
 # -----------------------------------------------------------------------------
-#  File:        print_yields.py
-#  Usage:       python print_yields.py --channel 4mu
-#  Description: Apply optimized event selection, including various machince learning
+#  File:        MonoHiggsSelection.py
+#  Usage:       python MonoHiggsSelection.py --channel 4mu
+#  Description: Apply optimized event selection, including various machine learning
 #               algorithm testing, printing out event yields and writing shape histograms
 #               to a file for limit setting.
 #  Created:     9-Feb-2017 Dustin Burns
 # -----------------------------------------------------------------------------
-
 from ROOT import *
 import numpy as np
 import math
 import argparse
 
-def get_data(t):
+# Convert ROOT TNtuple data structure to Python arrays
+def get_data(f):
+  f = TFile.Open(f)
+  t = f.Get("HZZ4LeptonsAnalysisReduced")
   weight = []
   pfmet  = []
   mass4l = []
@@ -33,6 +35,7 @@ def get_data(t):
     cat   .append(evt.f_category)
     Ngood .append(evt.f_Ngood)
     Nbjets.append(evt.f_Nbjets)
+  f.Close()
   return (weight, pfmet, mass4l, mT, dphi, Dkin, cat, Ngood, Nbjets)
 
 if __name__ == "__main__":
@@ -42,6 +45,7 @@ if __name__ == "__main__":
   parser.add_argument('--channel', required=True, help='Decay channel: 4mu, 4e, or 2e2mu')
   args = parser.parse_args()
 
+  # Read in list of data and simulation files
   flist = map(lambda x: x.split()[-1], open('filelist_' + args.channel + '_2016_Spring16_AN_lxplus.txt').readlines()) 
   
   # Load machine learning algorithm to test on events     
@@ -54,7 +58,7 @@ if __name__ == "__main__":
   #record = open('m4lmelamet_JETNET.cc').read() # JETNET algorithm, inputs: mass4l, Dkin, pfmet
   gROOT.ProcessLine(record)
 
-  # Book histograms for data
+  # Book histograms for data samples
   h0pfmet_D = TH1F("h0pfmet_D", "", 1000, 0, 1600)
   h1pfmet_D = TH1F("h1pfmet_D", "", 1000, 0, 1600)
   h1D_D = TH1F("h1D_D", "", 100, 0, 1.1)
@@ -66,10 +70,7 @@ if __name__ == "__main__":
   for f in flist:
       
     # Get Data
-    ft = TFile.Open(f)
-    t = ft.Get("HZZ4LeptonsAnalysisReduced")
-    weight, pfmet, mass4l, mT, dphi, Dkin, cat, Ngood, Nbjets = get_data(t)
-    ft.Close()
+    weight, pfmet, mass4l, mT, dphi, Dkin, cat, Ngood, Nbjets = get_data(f)
 
     # Book histograms for Monte Carlo simulation samples
     h0pfmet = TH1F("h0pfmet", "", 1000, 0, 1600)
@@ -87,7 +88,7 @@ if __name__ == "__main__":
       if 'Run2016' in f: 
         h0pfmet_D.Fill(pfmet[i], weight[i])
       
-      # Step 1: MonoH selection
+      # Step 1: MonoHiggs selection
       #if Ngood[i] != 4: continue
       #if Nbjets[i] > 1: continue
       #if pfmet[i] < 60: continue

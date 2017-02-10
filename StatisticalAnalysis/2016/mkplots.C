@@ -300,9 +300,66 @@ void mkplots(const char* histlabel){
   
   // Set options for plot depending on selected histogram
   // varPlot( _datanames, _bkgnames, _sig2HDM600, _sig2HDM1200, _sig2HDM2000, _sigZpB10, histlabel, logy, xmin, xmax, ymin, ymax, nRebin, xlabel){
+  if(strncmp(histlabel, "hPUvertices", 12) == 0){
+    varPlot(_datanames, _bkgnames, _sig2HDM600, _sig2HDM1200, _sig2HDM2000, _sigZpB10, histlabel, true, 0, 50, 3E-1, 8E7, 1, "Pileup vertices");
+  }
 
-  if (strncmp(histlabel, "hPFMET_3", 10) == 0 || strncmp(histlabel, "hPFMET_8", 10) == 0){
+  if(strncmp(histlabel, "hPUvertices_ReWeighted", 12) == 0){
+    varPlot(_datanames, _bkgnames, _sig2HDM600, _sig2HDM1200, _sig2HDM2000, _sigZpB10, histlabel, true, 0, 50, 3E-1, 8E7, 1, "Pileup vertices reweighted");
+  }
+
+  if (strncmp(histlabel, "hPtLep_0", 12) == 0 || strncmp(histlabel, "hPtLep_3", 12) == 0){
+    varPlot(_datanames, _bkgnames, _sig2HDM600, _sig2HDM1200, _sig2HDM2000, _sigZpB10, histlabel, true, 0, 200, 5E-5, 5E7, 10, "Lepton pT [GeV]");
+  }
+
+  if (strncmp(histlabel, "hPtLep1_5", 12) == 0){
+    varPlot(_datanames, _bkgnames, _sig2HDM600, _sig2HDM1200, _sig2HDM2000, _sigZpB10, histlabel, true, 0, 200, 5E-5, 5E5, 10, "Lepton 1 pT [GeV]");
+  }
+
+  if (strncmp(histlabel, "hPtLep2_5", 12) == 0){
+    varPlot(_datanames, _bkgnames, _sig2HDM600, _sig2HDM1200, _sig2HDM2000, _sigZpB10, histlabel, true, 0, 200, 5E-5, 5E5, 10, "Lepton 2 pT [GeV]");
+  }
+
+  if (strncmp(histlabel, "hPtLep3_5", 12) == 0){
+    varPlot(_datanames, _bkgnames, _sig2HDM600, _sig2HDM1200, _sig2HDM2000, _sigZpB10, histlabel, true, 0, 200, 5E-5, 5E5, 10, "Lepton 3 pT [GeV]");
+  }
+
+  if (strncmp(histlabel, "hPtLep4_5", 12) == 0){
+    varPlot(_datanames, _bkgnames, _sig2HDM600, _sig2HDM1200, _sig2HDM2000, _sigZpB10, histlabel, true, 0, 200, 5E-5, 5E5, 10, "Lepton 4 pT [GeV]");
+  }
+
+  if (strncmp(histlabel, "hEtaLep_3", 12) == 0){
+    varPlot(_datanames, _bkgnames, _sig2HDM600, _sig2HDM1200, _sig2HDM2000, _sigZpB10, histlabel, true, -2.5, 2.5, 5E-2, 5E7, 10, "Lepton #eta");
+  }
+  
+  //if (strncmp(histlabel, "hPhiLep_3", 12 == 0){
+  //  varPlot(_datanames, _bkgnames, _sig2HDM600, _sig2HDM1200, _sig2HDM2000, _sigZpB10, histlabel, true, -2.5, 2.5, 1E-1, 1E8, 10, "Leading Lepton Eta");
+ // }
+
+  if (strncmp(histlabel, "hIsoLep_0", 12) == 0 || strncmp(histlabel, "hIsoLep_3", 12) == 0){
+    varPlot(_datanames, _bkgnames, _sig2HDM600, _sig2HDM1200, _sig2HDM2000, _sigZpB10, histlabel, true, 0., 10., 5E-5, 8E9, 50, "Lepton Iso");
+  }
+
+  if (strncmp(histlabel, "hSipLep_0", 12) == 0 || strncmp(histlabel, "hSipLep_3", 12) == 0 || strncmp(histlabel, "hSipLep1_5", 12) == 0){
+    varPlot(_datanames, _bkgnames, _sig2HDM600, _sig2HDM1200, _sig2HDM2000, _sigZpB10, histlabel, true, -20., 20., 5E-1, 2E8, 10, "Lepton Sip");
+  }
+
+  if (strncmp(histlabel, "hPFMET_3", 12) == 0 || strncmp(histlabel, "hPFMET_8", 12) == 0){
     varPlot(_datanames, _bkgnames, _sig2HDM600, _sig2HDM1200, _sig2HDM2000, _sigZpB10, histlabel, true, 4.5, 1000, 5E-5, 2E4, 10, "PFMET [GeV]");
   }
+
+  if (strncmp(histlabel, "hMZ_3", 12) == 0 || strncmp(histlabel, "hMZ1_5", 12) == 0 || strncmp(histlabel, "hMZ1_8", 12) == 0){
+    varPlot(_datanames, _bkgnames, _sig2HDM600, _sig2HDM1200, _sig2HDM2000, _sigZpB10, histlabel, true, 0., 140., 1E-3, 1E8, 10, "Z_{ll} Mass [GeV]");
+  }
+  
+  //if (strncmp(histlabel, "hM4l_5", 12) == 0){
+  //  varPlot(_datanames, _bkgnames, _sig2HDM600, _sig2HDM1200, _sig2HDM2000, _sigZpB10, histlabel, true, 4.5, 1204.5, 5E-5, 7E3, 10, "M(llll) [GeV]");
+ // }
+
+  if (strncmp(histlabel, "hM4l_5", 12) == 0){
+    varPlot(_datanames, _bkgnames, _sig2HDM600, _sig2HDM1200, _sig2HDM2000, _sigZpB10, histlabel, false, 70, 170, 0, 239, 4, "M(llll) [GeV]");
+  }
+
+
 
 }

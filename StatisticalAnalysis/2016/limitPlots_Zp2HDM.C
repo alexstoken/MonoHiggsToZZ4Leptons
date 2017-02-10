@@ -71,7 +71,8 @@ for(int i=0;i<n;i++){
   _2sighigh[i] *= _xsecth[i];
   _observed[i] *= _xsecth[i];
 }
-cout << _middle[0] << " " << _middle[1] << " " << _middle[2] << " " << _middle[3] << " " << _middle[4] << " " << _middle[5] << " " << _middle[6] << " " << _middle[7] << endl;
+cout << "2HDM " << _middle[0] << endl;
+//cout << _middle[0] << " " << _middle[1] << " " << _middle[2] << " " << _middle[3] << " " << _middle[4] << " " << _middle[5] << " " << _middle[6] << " " << _middle[7] << endl;
 
 
 // Fill graphs
