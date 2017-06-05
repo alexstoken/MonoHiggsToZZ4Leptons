@@ -171,14 +171,14 @@ echo '--------------------------------------------------------------------------
 
 # Zp2HDM
 
-#combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_ZprimeToA0hToA0chichihZZTo4l_2HDM_MZp-1000_MA0-300_13TeV-madgraph-pythia8.txt > limits_$1_MZP1000_MA0300.txt
-#combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_ZprimeToA0hToA0chichihZZTo4l_2HDM_MZp-1200_MA0-300_13TeV-madgraph-pythia8.txt > limits_$1_MZP1200_MA0300.txt
-#combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_ZprimeToA0hToA0chichihZZTo4l_2HDM_MZp-1400_MA0-300_13TeV-madgraph-pythia8.txt > limits_$1_MZP1400_MA0300.txt
-#combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_ZprimeToA0hToA0chichihZZTo4l_2HDM_MZp-1700_MA0-300_13TeV-madgraph-pythia8.txt > limits_$1_MZP1700_MA0300.txt
-#combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_ZprimeToA0hToA0chichihZZTo4l_2HDM_MZp-2000_MA0-300_13TeV-madgraph-pythia8.txt > limits_$1_MZP2000_MA0300.txt
-#combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_ZprimeToA0hToA0chichihZZTo4l_2HDM_MZp-2500_MA0-300_13TeV-madgraph-pythia8.txt > limits_$1_MZP2500_MA0300.txt
-combine -M Asymptotic -S 0 datacards_$1/hhxx_Fall15_card_$1_ZprimeToA0hToA0chichihZZTo4l_2HDM_MZp-600_MA0-300_13TeV-madgraph-pythia8.txt > limits_$1_MZP600_MA0300.txt
-#combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_ZprimeToA0hToA0chichihZZTo4l_2HDM_MZp-800_MA0-300_13TeV-madgraph-pythia8.txt > limits_$1_MZP800_MA0300.txt
+combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_ZprimeToA0hToA0chichihZZTo4l_2HDM_MZp-1000_MA0-300_13TeV-madgraph-pythia8.txt > limits_$1_MZP1000_MA0300.txt
+combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_ZprimeToA0hToA0chichihZZTo4l_2HDM_MZp-1200_MA0-300_13TeV-madgraph-pythia8.txt > limits_$1_MZP1200_MA0300.txt
+combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_ZprimeToA0hToA0chichihZZTo4l_2HDM_MZp-1400_MA0-300_13TeV-madgraph-pythia8.txt > limits_$1_MZP1400_MA0300.txt
+combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_ZprimeToA0hToA0chichihZZTo4l_2HDM_MZp-1700_MA0-300_13TeV-madgraph-pythia8.txt > limits_$1_MZP1700_MA0300.txt
+combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_ZprimeToA0hToA0chichihZZTo4l_2HDM_MZp-2000_MA0-300_13TeV-madgraph-pythia8.txt > limits_$1_MZP2000_MA0300.txt
+combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_ZprimeToA0hToA0chichihZZTo4l_2HDM_MZp-2500_MA0-300_13TeV-madgraph-pythia8.txt > limits_$1_MZP2500_MA0300.txt
+combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_ZprimeToA0hToA0chichihZZTo4l_2HDM_MZp-600_MA0-300_13TeV-madgraph-pythia8.txt > limits_$1_MZP600_MA0300.txt
+combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_ZprimeToA0hToA0chichihZZTo4l_2HDM_MZp-800_MA0-300_13TeV-madgraph-pythia8.txt > limits_$1_MZP800_MA0300.txt
 
 #combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_ZprimeToA0hToA0chichihZZTo4l_2HDM_MZp-1000_MA0-400_13TeV-madgraph.txt > limits_$1_MZP1000_MA0400.txt
 #combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_ZprimeToA0hToA0chichihZZTo4l_2HDM_MZp-1200_MA0-400_13TeV-madgraph.txt > limits_$1_MZP1200_MA0400.txt
@@ -221,16 +221,16 @@ combine -M Asymptotic -S 0 datacards_$1/hhxx_Fall15_card_$1_ZprimeToA0hToA0chich
 
 # ZpBaryonic
 
-#combine -M Asymptotic datacards_4l/hhxx_Fall15_card_4l_MonoHZZ4l_ZpBaryonic_MZp-10000_MChi-1_13TeV-madgraph.txt > limits_ZpBaryonic_MZP10000_MChi1.txt
-#combine -M Asymptotic datacards_4l/hhxx_Fall15_card_4l_MonoHZZ4l_ZpBaryonic_MZp-1000_MChi-1_13TeV-madgraph.txt > limits_ZpBaryonic_MZP1000_MChi1.txt
-#combine -M Asymptotic datacards_4l/hhxx_Fall15_card_4l_MonoHZZ4l_ZpBaryonic_MZp-100_MChi-1_13TeV-madgraph.txt > limits_ZpBaryonic_MZP100_MChi1.txt
-combine -M Asymptotic -S 0 datacards_4l/hhxx_Fall15_card_4l_MonoHZZ4l_ZpBaryonic_MZp-10_MChi-1_13TeV-madgraph.txt > limits_ZpBaryonic_MZP10_MChi1.txt
-#combine -M Asymptotic datacards_4l/hhxx_Fall15_card_4l_MonoHZZ4l_ZpBaryonic_MZp-2000_MChi-1_13TeV-madgraph.txt > limits_ZpBaryonic_MZP2000_MChi1.txt
-#combine -M Asymptotic datacards_4l/hhxx_Fall15_card_4l_MonoHZZ4l_ZpBaryonic_MZp-200_MChi-1_13TeV-madgraph.txt > limits_ZpBaryonic_MZP200_MChi1.txt
-#combine -M Asymptotic datacards_4l/hhxx_Fall15_card_4l_MonoHZZ4l_ZpBaryonic_MZp-20_MChi-1_13TeV-madgraph.txt > limits_ZpBaryonic_MZP20_MChi1.txt
-#combine -M Asymptotic datacards_4l/hhxx_Fall15_card_4l_MonoHZZ4l_ZpBaryonic_MZp-300_MChi-1_13TeV-madgraph.txt > limits_ZpBaryonic_MZP300_MChi1.txt
-#combine -M Asymptotic datacards_4l/hhxx_Fall15_card_4l_MonoHZZ4l_ZpBaryonic_MZp-500_MChi-1_13TeV-madgraph.txt > limits_ZpBaryonic_MZP500_MChi1.txt
-#combine -M Asymptotic datacards_4l/hhxx_Fall15_card_4l_MonoHZZ4l_ZpBaryonic_MZp-50_MChi-1_13TeV-madgraph.txt > limits_ZpBaryonic_MZP50_MChi1.txt
+combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_MonoHZZ4l_ZpBaryonic_MZp-10000_MChi-1_13TeV-madgraph.txt > limits_ZpBaryonic_MZP10000_MChi1.txt
+combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_MonoHZZ4l_ZpBaryonic_MZp-1000_MChi-1_13TeV-madgraph.txt > limits_ZpBaryonic_MZP1000_MChi1.txt
+combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_MonoHZZ4l_ZpBaryonic_MZp-100_MChi-1_13TeV-madgraph.txt > limits_ZpBaryonic_MZP100_MChi1.txt
+combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_MonoHZZ4l_ZpBaryonic_MZp-10_MChi-1_13TeV-madgraph.txt > limits_ZpBaryonic_MZP10_MChi1.txt
+combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_MonoHZZ4l_ZpBaryonic_MZp-2000_MChi-1_13TeV-madgraph.txt > limits_ZpBaryonic_MZP2000_MChi1.txt
+combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_MonoHZZ4l_ZpBaryonic_MZp-200_MChi-1_13TeV-madgraph.txt > limits_ZpBaryonic_MZP200_MChi1.txt
+combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_MonoHZZ4l_ZpBaryonic_MZp-20_MChi-1_13TeV-madgraph.txt > limits_ZpBaryonic_MZP20_MChi1.txt
+combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_MonoHZZ4l_ZpBaryonic_MZp-300_MChi-1_13TeV-madgraph.txt > limits_ZpBaryonic_MZP300_MChi1.txt
+combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_MonoHZZ4l_ZpBaryonic_MZp-500_MChi-1_13TeV-madgraph.txt > limits_ZpBaryonic_MZP500_MChi1.txt
+combine -M Asymptotic datacards_$1/hhxx_Fall15_card_$1_MonoHZZ4l_ZpBaryonic_MZp-50_MChi-1_13TeV-madgraph.txt > limits_ZpBaryonic_MZP50_MChi1.txt
 
 #combine -M Asymptotic datacards_4l/hhxx_Fall15_card_4l_MonoHZZ4l_ZpBaryonic_MZp-10000_MChi-10_13TeV-madgraph.txt > limits_ZpBaryonic_MZP10000_MChi10.txt
 #combine -M Asymptotic datacards_4l/hhxx_Fall15_card_4l_MonoHZZ4l_ZpBaryonic_MZp-100_MChi-10_13TeV-madgraph.txt > limits_ZpBaryonic_MZP100_MChi10.txt
@@ -270,7 +270,7 @@ combine -M Asymptotic -S 0 datacards_4l/hhxx_Fall15_card_4l_MonoHZZ4l_ZpBaryonic
 echo '-----------------------------------------------------------------------------'
 echo 'Step 5: Merge txt files in ascending MZP order'
 echo '-----------------------------------------------------------------------------'
-cat limits_4l_MZP600_MA0300.txt limits_4l_MZP800_MA0300.txt limits_4l_MZP1000_MA0300.txt limits_4l_MZP1200_MA0300.txt limits_4l_MZP1400_MA0300.txt limits_4l_MZP1700_MA0300.txt limits_4l_MZP2000_MA0300.txt limits_4l_MZP2500_MA0300.txt > limits_Zp2HDM_4l_MA0300.txt
+cat limits_$1_MZP600_MA0300.txt limits_$1_MZP800_MA0300.txt limits_$1_MZP1000_MA0300.txt limits_$1_MZP1200_MA0300.txt limits_$1_MZP1400_MA0300.txt limits_$1_MZP1700_MA0300.txt limits_$1_MZP2000_MA0300.txt limits_$1_MZP2500_MA0300.txt > limits_Zp2HDM_$1_MA0300.txt
 #cat limits_4l_MZP600_MA0400.txt limits_4l_MZP800_MA0400.txt limits_4l_MZP1000_MA0400.txt limits_4l_MZP1200_MA0400.txt limits_4l_MZP1400_MA0400.txt limits_4l_MZP1700_MA0400.txt limits_4l_MZP2000_MA0400.txt limits_4l_MZP2500_MA0400.txt > limits_Zp2HDM_4l_MA0400.txt
 #cat limits_4l_MZP800_MA0500.txt limits_4l_MZP1000_MA0500.txt limits_4l_MZP1200_MA0500.txt limits_4l_MZP1400_MA0500.txt limits_4l_MZP1700_MA0500.txt limits_4l_MZP2000_MA0500.txt limits_4l_MZP2500_MA0500.txt > limits_Zp2HDM_4l_MA0500.txt
 #cat limits_4l_MZP800_MA0600.txt limits_4l_MZP1000_MA0600.txt limits_4l_MZP1200_MA0600.txt limits_4l_MZP1400_MA0600.txt limits_4l_MZP1700_MA0600.txt limits_4l_MZP2000_MA0600.txt limits_4l_MZP2500_MA0600.txt > limits_Zp2HDM_4l_MA0600.txt

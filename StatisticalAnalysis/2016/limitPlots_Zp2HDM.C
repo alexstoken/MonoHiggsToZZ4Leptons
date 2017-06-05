@@ -61,15 +61,17 @@ while (std::getline(file, str)){
 BR = 2.745E-04;
 PBtoFB = 1E3;
 Double_t _xsecth[n] = {0.45217*BR*PBtoFB, 0.27765*BR*PBtoFB, 0.14383*BR*PBtoFB, 0.075451*BR*PBtoFB, 0.041208*BR*PBtoFB, 0.017786*BR*PBtoFB, 0.0082317*BR*PBtoFB, 0.0025458*BR*PBtoFB};
+Double_t _xsec[n] = {0.45217*BR*PBtoFB, 0.27765*BR*PBtoFB, 0.14383*BR*PBtoFB, 0.075451*BR*PBtoFB, 0.041208*BR*PBtoFB, 0.017786*BR*PBtoFB, 0.0082317*BR*PBtoFB, 0.0025458*BR*PBtoFB};
+//Double_t _xsec[n] = {0.45217*BR*PBtoFB, 0.27765*BR*PBtoFB, 0.14383*BR*PBtoFB, 0.075451*BR*PBtoFB, 0.041208*BR*PBtoFB*1000, 0.017786*BR*PBtoFB*1000, 0.0082317*BR*PBtoFB*1000, 0.0025458*BR*PBtoFB*1000};
 //Double_t _xsec[n] = {BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB, BR*PBtoFB};
 //Double_t _xsec[n] = {1, 1, 1, 1, 1, 1, 1, 1};
 for(int i=0;i<n;i++){
-  _2siglow[i]  *= _xsecth[i];
-  _1siglow[i]  *= _xsecth[i];
-  _middle[i]   *= _xsecth[i];
-  _1sighigh[i] *= _xsecth[i];
-  _2sighigh[i] *= _xsecth[i];
-  _observed[i] *= _xsecth[i];
+  _2siglow[i]  *= _xsec[i];
+  _1siglow[i]  *= _xsec[i];
+  _middle[i]   *= _xsec[i];
+  _1sighigh[i] *= _xsec[i];
+  _2sighigh[i] *= _xsec[i];
+  _observed[i] *= _xsec[i];
 }
 cout << "2HDM " << _middle[0] << endl;
 //cout << _middle[0] << " " << _middle[1] << " " << _middle[2] << " " << _middle[3] << " " << _middle[4] << " " << _middle[5] << " " << _middle[6] << " " << _middle[7] << endl;
@@ -111,18 +113,33 @@ c->SetLogy();
 c->SetTicks(1,1);
 c->SetGrid();
 //TH2F * hframe = new TH2F("hframe", "", 10, 600, 2500, 10, 1E-2, 1E4);
-TH2F * hframe = new TH2F("hframe", "", 10, 600, 2500, 10, 5E-5, 8E3);
-hframe->GetXaxis()->SetTitle("m_{Z'} [GeV]");
-hframe->GetXaxis()->SetTitleOffset(1.0);
-hframe->GetXaxis()->SetTitleSize(0.04);
+TH2F * hframe = new TH2F("hframe", "", 10, 600, 1700, 10, 5E-5, 8E5);
+//hframe->GetXaxis()->SetTitle("m_{Z'} [GeV]");
+//hframe->GetXaxis()->SetTitleOffset(1.0);
+//hframe->GetXaxis()->SetTitleSize(0.04);
 //if (strncmp(channel.c_str(), "4mu", 10) == 0) hframe->GetYaxis()->SetTitle("95% C.L. #sigma(pp #rightarrow Z' #rightarrow A_{0}H #rightarrow #chi #chi #mu#mu#mu#mu) [fb]");
 //if (strncmp(channel.c_str(), "4e", 10) == 0) hframe->GetYaxis()->SetTitle("95% C.L. #sigma(pp #rightarrow Z' #rightarrow A_{0}H #rightarrow #chi #chi eeee) [fb]");
 //if (strncmp(channel.c_str(), "2e2mu", 10) == 0) hframe->GetYaxis()->SetTitle("95% C.L. #sigma(pp #rightarrow Z' #rightarrow A_{0}H #rightarrow #chi #chi ee#mu#mu) [fb]");
-if (strncmp(channel.c_str(), "4l", 10) == 0) hframe->GetYaxis()->SetTitle("95% C.L. #sigma(pp #rightarrow Z' #rightarrow A_{0}H #rightarrow #chi #chi llll) [fb]");
+//if (strncmp(channel.c_str(), "4l", 10) == 0) hframe->GetYaxis()->SetTitle("95% C.L. #sigma(pp #rightarrow Z' #rightarrow A_{0}H #rightarrow #chi #chi llll) [fb]");
 //hframe->GetYaxis()->SetTitle("#sigma_{95%CL} / #sigma_{theory}");
-hframe->GetYaxis()->SetTitleOffset(1.0);
-hframe->GetYaxis()->SetTitleSize(0.04);
-hframe->Draw();
+//hframe->GetYaxis()->SetTitleOffset(1.0);
+//hframe->GetYaxis()->SetTitleSize(0.04);
+//hframe->Draw();
+
+hframe->SetYTitle("95% C.L. #sigma(pp #rightarrow Z'H #rightarrow #chi #chi llll) (fb)");
+hframe->GetYaxis()->SetLabelSize(0.035);
+hframe->GetYaxis()->SetTitleSize(0.032);
+hframe->GetYaxis()->SetLabelOffset(0.007);
+hframe->GetYaxis()->SetTitleOffset(1.35);
+hframe->GetYaxis()->SetTickLength(0.02);
+hframe->GetXaxis()->SetTitle("m_{Z'} (GeV)");
+hframe->GetXaxis()->SetLabelSize(0.035);
+hframe->GetXaxis()->SetTitleSize(0.032);
+hframe->GetXaxis()->SetLabelOffset(0.007);
+hframe->GetXaxis()->SetTitleOffset(1.35);
+hframe->GetXaxis()->SetTickLength(0.02);
+hframe->Draw("Same");
+
 grshade2->SetFillColor(5);
 grshade2->Draw("f");
 grshade1->SetFillColor(3);
@@ -131,7 +148,7 @@ gmiddle->SetLineWidth(2);
 gmiddle->SetLineStyle(2);
 gmiddle->Draw("l");
 gobserved->SetLineWidth(2);
-//gobserved->Draw("l");
+gobserved->Draw("l");
 gxsec->SetLineWidth(2);
 gxsec->SetLineColor(kBlue);
 gxsec->SetLineStyle(2);
@@ -140,32 +157,29 @@ gxsec->Draw("l");
 
 // Legend formatting
 TLegend *leg = new TLegend(0.15,0.65,0.5,0.85);
-//TLegend *leg = new TLegend(0.5,0.65,0.85,0.85);
 leg->SetFillStyle(0);
 leg->SetBorderSize(0);
-leg->AddEntry(gxsec, "Z'2HDM g_{Z}=0.8 x BR", "L");
+leg->AddEntry(gxsec, "Z'2HDM x BR", "L");
 leg->AddEntry(gmiddle, "Expected limit", "L");
 leg->AddEntry(grshade1, "#pm 1 #sigma", "F");
 leg->AddEntry(grshade2, "#pm 2 #sigma", "F");
-//leg->AddEntry(gobserved, "Observed limit", "L");
-leg->SetTextSize(0.04);
+leg->AddEntry(gobserved, "Observed limit", "L");
+leg->SetTextSize(0.032);
 leg->Draw();
 
 
 // Text formatting
-TPaveText *ll = new TPaveText(0.10, 0.92, 0.92, 0.92, "NDC");
-ll->SetTextSize(0.04);
+TPaveText *ll = new TPaveText(0.09, 0.9, 0.92, 0.94, "NDC");
+ll->SetTextSize(0.032);
 ll->SetTextFont(42);
 ll->SetFillColor(0);
 ll->SetBorderSize(0);
 ll->SetMargin(0.01);
-ll->SetTextAlign(12); // align left
-TString text = "Work in Progress";
-//TString text = "#font[22]{CMS} #font[12]{Preliminary}";
+ll->SetTextAlign(12);
+TString text = "#font[22]{CMS} #font[12]{Preliminary}";
 ll->AddText(0.01,0.5,text);
-//text = "#sqrt{s} = 13 TeV, L = 2.8 fb^{-1}" ;
-text = "#sqrt{s} = 13 TeV, L = 36.5 fb^{-1}" ;
-ll->AddText(0.65, 0.6, text);
+text = "36.5 fb^{-1} (13 TeV)";
+ll->AddText(0.79, 0.5, text);
 ll->Draw();
 
 
@@ -174,7 +188,7 @@ char save[50];
 sprintf(save, "plots/sigma_limits_%s_Zp2HDM.png", channel.c_str());
 c->SaveAs(save);
 
-
+/*
 //2D Plot
 //3.0234 2.4141 2.5234 2.7109 2.9141 3.2656 3.6719 4.4062
 //4.1719 2.3984 2.4141 2.6328 2.8203 3.1719 3.6406 4.2969
@@ -238,6 +252,6 @@ ll->Draw();
 c1->SaveAs("plots/sigma_limits_2D_Zp2HDM.png");
 
 
-
+*/
 
 }

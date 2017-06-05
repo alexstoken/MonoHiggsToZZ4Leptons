@@ -1,0 +1,88 @@
+At r = 6.090366:	q_mu = 3.91925	q_A  = 3.70161	CLsb = 0.02382	CLb  = 0.47745	CLs  = 0.04990
+
+ -- Asymptotic -- 
+Observed Limit: r < 6.0904
+Expected  2.5%: r < 1.9514
+Expected 16.0%: r < 3.3669
+Expected 50.0%: r < 6.3438
+Expected 84.0%: r < 12.0585
+Expected 97.5%: r < 19.2339
+
+Done in 0.01 min (cpu), 0.01 min (real)
+At r = 8.939640:	q_mu = 3.87277	q_A  = 3.79129	CLsb = 0.02453	CLb  = 0.49165	CLs  = 0.04990
+
+ -- Asymptotic -- 
+Observed Limit: r < 8.9396
+Expected  2.5%: r < 2.7076
+Expected 16.0%: r < 4.7455
+Expected 50.0%: r < 9.0312
+Expected 84.0%: r < 17.4550
+Expected 97.5%: r < 27.3845
+
+Done in 0.01 min (cpu), 0.01 min (real)
+At r = 19.120201:	q_mu = 3.86040	q_A  = 3.81520	CLsb = 0.02472	CLb  = 0.49538	CLs  = 0.04990
+
+ -- Asymptotic -- 
+Observed Limit: r < 19.1202
+Expected  2.5%: r < 5.6960
+Expected 16.0%: r < 10.0640
+Expected 50.0%: r < 19.2500
+Expected 84.0%: r < 37.2051
+Expected 97.5%: r < 58.3698
+
+Done in 0.01 min (cpu), 0.01 min (real)
+At r = 41.774954:	q_mu = 3.85437	q_A  = 3.82687	CLsb = 0.02481	CLb  = 0.49720	CLs  = 0.04990
+
+ -- Asymptotic -- 
+Observed Limit: r < 41.7750
+Expected  2.5%: r < 12.3683
+Expected 16.0%: r < 21.8397
+Expected 50.0%: r < 41.9375
+Expected 84.0%: r < 81.0540
+Expected 97.5%: r < 127.1628
+
+Done in 0.01 min (cpu), 0.01 min (real)
+At r = 87.491864:	q_mu = 3.85227	q_A  = 3.83093	CLsb = 0.02484	CLb  = 0.49783	CLs  = 0.04989
+
+ -- Asymptotic -- 
+Observed Limit: r < 87.4919
+Expected  2.5%: r < 25.7937
+Expected 16.0%: r < 45.7601
+Expected 50.0%: r < 87.7500
+Expected 84.0%: r < 169.5974
+Expected 97.5%: r < 266.0753
+
+Done in 0.01 min (cpu), 0.01 min (real)
+At r = 248.181892:	q_mu = 3.84823	q_A  = 3.83873	CLsb = 0.02490	CLb  = 0.49903	CLs  = 0.04989
+
+ -- Asymptotic -- 
+Observed Limit: r < 248.1819
+Expected  2.5%: r < 72.9719
+Expected 16.0%: r < 129.4580
+Expected 50.0%: r < 248.2500
+Expected 84.0%: r < 479.8012
+Expected 97.5%: r < 752.7429
+
+Done in 0.03 min (cpu), 0.03 min (real)
+At r = 707.578483:	q_mu = 3.84803	q_A  = 3.83912	CLsb = 0.02490	CLb  = 0.49909	CLs  = 0.04989
+
+ -- Asymptotic -- 
+Observed Limit: r < 707.5785
+Expected  2.5%: r < 208.1133
+Expected 16.0%: r < 368.2332
+Expected 50.0%: r < 708.0000
+Expected 84.0%: r < 1368.3757
+Expected 97.5%: r < 2146.7954
+
+Done in 0.07 min (cpu), 0.07 min (real)
+At r = 7589.925926:	q_mu = 3.84951	q_A  = 3.83522	CLsb = 0.02488	CLb  = 0.49854	CLs  = 0.04991
+
+ -- Asymptotic -- 
+Observed Limit: r < 7589.9259
+Expected  2.5%: r < 2242.1875
+Expected 16.0%: r < 3958.8013
+Expected 50.0%: r < 4000.0000
+Expected 84.0%: r < 8049.8193
+Expected 97.5%: r < 12131.2783
+
+Done in 0.39 min (cpu), 0.39 min (real)
